@@ -1,0 +1,374 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0b0f19;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: var(--glass-blur);
+  height: 60px;
+  z-index: 10;
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.roomTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.roomCode {
+  font-family: monospace;
+  font-size: 12px;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.navCenter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.autoSaveIndicator {
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.workspace {
+  display: flex;
+  flex: 1;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  border-right: 1px solid var(--border-color);
+  background: rgba(15, 23, 42, 0.25);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebarSection {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebarSection h3 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.participantList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.participantRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+}
+
+.pUser {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.pName {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.micIcon {
+  color: var(--text-secondary);
+}
+
+.micIcon.muted {
+  color: var(--danger);
+}
+
+.roleSelect {
+  background: transparent;
+  border: none;
+  color: var(--accent-color);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Chat Section inside sidebar */
+.chatSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 250px);
+}
+
+.chatMessages {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.chatBubble {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 85%;
+}
+
+.chatBubble.self {
+  align-self: flex-end;
+}
+
+.chatMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.chatBody {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.chatBubble.self .chatBody {
+  background: var(--accent-color);
+  border-color: var(--accent-hover);
+}
+
+.chatInputArea {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 8px;
+}
+
+.chatInput {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+}
+
+.chatInput:focus {
+  border-color: var(--accent-color);
+}
+
+/* Main Code Editor & Console layout */
+.editorContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.monacoWrap {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  background: #1e1e1e;
+}
+
+/* Console Split Panel */
+.consolePanel {
+  height: 250px;
+  border-top: 1px solid var(--border-color);
+  background: #0f172a;
+  display: flex;
+  flex-direction: column;
+}
+
+.consoleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.consoleTabs {
+  display: flex;
+  gap: 16px;
+}
+
+.consoleTab {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.consoleTab.active {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.runBtn {
+  background: var(--success);
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px 0 rgba(16, 185, 129, 0.2);
+  transition: all 0.2s ease;
+}
+
+.runBtn:hover {
+  background: #059669;
+  transform: translateY(-0.5px);
+}
+
+.runBtn:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.consoleContent {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.consoleTextarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f1f5f9;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 12px;
+  resize: none;
+  height: 100%;
+  width: 100%;
+}
+
+.consoleOutput {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  height: 100%;
+}
+
+.outputHeader {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 4px;
+}
+
+.stdoutText {
+  color: #10b981;
+}
+
+.stderrText {
+  color: #ef4444;
+}
+
+.viewerRestriction {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(239, 68, 68, 0.95);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  z-index: 100;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}

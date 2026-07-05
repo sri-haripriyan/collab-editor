@@ -1,0 +1,29 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: codeeditor
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/collab_editor}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+
+jwt:
+  # Secret key base64 encoded for signing HS512 (min 64 characters)
+  # Using a standard development secret key. In production, this should be an environment variable.
+  secret: ${JWT_SECRET:dGhpcy1pcy1hLXNlY3VyZS1hbmQtc3VwZXItbG9uZy1kZXZlbG9wbWVudC1qd3Qtc2VjcmV0LWtleS1mb3ItY29sbGFiLWNvZGUtZWRpdG9yLWFwcGxpY2F0aW9u}
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000} # 24 hours

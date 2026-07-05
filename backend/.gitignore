@@ -1,0 +1,24 @@
+# Maven target directory
+target/
+
+# Temporary execution sandboxes
+temp_runs/
+
+# Environment files containing secrets
+.env
+.env.local
+# Log files
+*.log
+logs/
+
+# IDE/Editor folders
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+
+# Compilation classes
+*.class
