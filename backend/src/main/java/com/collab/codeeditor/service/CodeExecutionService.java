@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class CodeExecutionService {
 
     private static final long TIMEOUT_MS = 5000; // 5 seconds safety timeout
-    private static final Path TEMP_DIR = Paths.get("d:/projects/agent_projects/backend/temp_runs");
+    private static final Path TEMP_DIR = Paths.get("./temp_runs");
 
     public ExecutionResponse executeCode(ExecutionRequest request) {
         String lang = request.getLanguage().toLowerCase();
