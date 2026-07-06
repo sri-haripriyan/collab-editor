@@ -6,11 +6,17 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
+import org.springframework.beans.factory.annotation.Value;
+import java.util.List;
+
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
     private final RoomWebSocketHandler roomWebSocketHandler;
+
+    @Value("${app.cors.allowed-origins}")
+    private List<String> allowedOrigins;
 
     public WebSocketConfig(RoomWebSocketHandler roomWebSocketHandler) {
         this.roomWebSocketHandler = roomWebSocketHandler;
@@ -19,6 +25,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(roomWebSocketHandler, "/ws/room")
-                .setAllowedOrigins("*");
+                .setAllowedOrigins(allowedOrigins.toArray(new String[0]));
     }
 }
+
